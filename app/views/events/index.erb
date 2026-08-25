@@ -1,5 +1,8 @@
 <ul>
-  <li>BugSmash</li>
-  <li>Hackathon</li>
-  <li>Kata Camp</li>
+  <% @events.each do |event| %>
+    <li>
+      <strong><%= event.name %></strong>
+      in <%= event.location %> for <%= number_to_currency(event.price, precision: 0) %>
+    </li>
+  <% end %>
 </ul>
