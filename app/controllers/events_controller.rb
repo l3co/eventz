@@ -1,7 +1,7 @@
 require_relative "../models/event"
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event.upcoming
   end
 
   def show
