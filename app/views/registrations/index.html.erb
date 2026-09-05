@@ -1,0 +1,21 @@
+<h2>
+  Registrations for <%= link_to @events.name, @events %>
+</h2>
+<div class="table-responsive">
+  <table class='table table-striped table-bordered'>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Registration Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @registrations.each do |registration| %>
+      <tr>
+        <td><%= registration.name %></td>
+        <td><%= registration.created_at.strftime("%B %d, %Y") %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
