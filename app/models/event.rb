@@ -17,4 +17,8 @@ class Event < ApplicationRecord
   def self.upcoming
     where("starts_at > ?", Time.now).order("starts_at")
   end
+
+  def sold_out?
+    (capacity - registrations.count) <= 0
+  end
 end
