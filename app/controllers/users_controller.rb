@@ -35,9 +35,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path, status: :see_other, notice: "User deleted successfully."
+    if session[:user_id] && session[:user_id] == params[:id].to_i
+      @user = User.find(params[:id])
+      @user.destroy
+      session[:user_id] = nil
+      redirect_to users_path, status: :see_other, notice: "User deleted successfully."
+    else
+      redirect_to users_path, status: :see_other, alert: "You can only delete your own account."
+    end
   end
 
   private
