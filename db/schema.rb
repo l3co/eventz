@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_09_130756) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_12_002342) do
   create_table "events", force: :cascade do |t|
     t.integer "capacity", default: 1
     t.datetime "created_at", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_09_130756) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.string "email"
     t.string "name"
