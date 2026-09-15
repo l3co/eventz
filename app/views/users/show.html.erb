@@ -8,6 +8,27 @@
       <%= link_to "Delete", @user, data: { turbo_method: :delete }, confirm: "Are you sure?", class: "button delete" %>
     </div>
   <% end %>
+  <% if @liked_events.any? %>
+    <h1>Liked Events</h1>
+    <div class="table-responsive">
+      <table class='table table-striped table-bordered'>
+        <thead>
+        <tr>
+          <th>Event</th>
+          <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @liked_events.each do |event| %>
+          <tr>
+            <td><%= link_to event.name, event %></td>
+            <td><%= day_and_time(event) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
   <% if @registrations.any? %>
     <h1>Registrations</h1>
     <div class="table-responsive">
